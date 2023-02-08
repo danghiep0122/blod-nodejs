@@ -1,13 +1,12 @@
-
-
 const path = require('path')
 const express = require("express");
 const morgan = require("morgan")
 const { engine } = require ('express-handlebars');
 const app = express();
 
+app.use(express.static(path.join(__dirname,'public')))
+
 //Template engine
-// app.engine('handlebars', handlebars())
 app.engine('.hbs', engine({
   extname: '.hbs',
 }));
