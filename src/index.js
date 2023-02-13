@@ -4,6 +4,8 @@ const morgan = require("morgan")
 const { engine } = require ('express-handlebars');
 const app = express();
 
+const route = require('./routes/index.js')
+
 app.use(express.static(path.join(__dirname,'public')))
 
 //Template engine
@@ -17,18 +19,8 @@ const port = 3000;
 //HTTP logger
 app.use(morgan('combined'))
 
-app.get("/", (req, res) => {
-  res.render("home");
-});
-
-app.get("/news", (req, res) => {
-  res.render("news");
-});
-
-app.get("/search", (req, res) => {
-  console.log(req.query.q);
-  res.render("search");
-});
+// Route init
+route(app)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
