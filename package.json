@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "sass --watch src/resource/scss/app.scss src/public/css/app.css",
-    "start": "nodemon --inspect src/index.js"
+    "start": "nodemon --inspect src/index.js",
+    "pretty": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -23,14 +24,23 @@
     "url": "https://github.com/danghiep0122/blod-nodejs/issues"
   },
   "homepage": "https://github.com/danghiep0122/blod-nodejs#readme",
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --write"
+  },
+  "husky": {
+    "pre-commit": "lint-staged"
+  },
   "dependencies": {
     "express": "^4.18.2",
     "express-handlebars": "^6.0.7",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
     "node-sass": "^8.0.0",
     "nodemon": "^2.0.20",
+    "prettier": "^2.8.4",
     "sass": "^1.58.0"
   }
 }
