@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "sass --watch src/resource/scss/app.scss src/public/css/app.css",
     "start": "nodemon --inspect src/index.js",
-    "pretty": "lint-staged"
+    "pretty": "lint-staged",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -36,7 +37,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
     "lint-staged": "^13.1.2",
     "node-sass": "^8.0.0",
     "nodemon": "^2.0.20",
