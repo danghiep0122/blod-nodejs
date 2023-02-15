@@ -5,6 +5,10 @@ const { engine } = require('express-handlebars');
 const app = express();
 
 const route = require('./routes/index.js');
+const db = require('./config/db');
+
+//Connect to DB
+db.connect();
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -16,7 +20,7 @@ app.engine(
   }),
 );
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resource/views'));
+app.set('views', path.join(__dirname, 'resource', 'views'));
 const port = 3000;
 
 //HTTP logger
@@ -26,5 +30,5 @@ app.use(morgan('combined'));
 route(app);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`App listening on port ${port}`);
 });
